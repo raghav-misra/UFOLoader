@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>UFOLoader</title>
+  </head>
+  <body style="font-family: sans-serif;">
+		<h1>Loader will appear in 2 seconds.</h1>
+		<hr>
+		<ol>
+			<li>
+				Go to <a href="https://ufoloader.raghavm.repl.co/loader.js">
+				<code>/loader.js</code></a>
+				and copy the code into a JS file and link it with a <code>&lt;script&gt;</code> tag. 
+			</li>
+
+			<li>
+				Add the following to your JS code: <br>
+				<ul>
+					<li><code>document.body.addEventListener("load", () => UFO.init());</code></li>
+					<li><code>const loader = new UFO(element);</code></li>
+				</ul>
+				<code>element</code> is an <code>HTMLElement</code> pointing to the loader tag.<br>
+				A <code>&lt;style&gt;</code> tag with UFO's CSS will be added when the page loads.<br> 
+				Also, the empty HTMLElement will have children and attributes added to it.
+			</li>
+		</ol>
+
+		<!-- Important Code -->
+		<div id="loader" style="z-index: -5"></div>
+    <script src="loader.js"></script>
+		<script>
+			UFO.init({
+				background: "none",
+				hole: "white",
+			});
+			const loader = new UFO(document.querySelector("#loader"));
+			loader.hide();
+			setTimeout(() => { loader.show(); loader.enable(); }, 2000);
+		</script>
+		<!-- End Important Code -->
+  </body>
+</html>
